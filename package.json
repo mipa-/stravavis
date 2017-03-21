@@ -1,5 +1,6 @@
 {
   "name": "stravavis",
+  "homepage": "https://mipa-.github.io/stravavis",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
