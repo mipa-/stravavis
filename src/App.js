@@ -14,7 +14,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <input type="submit" />
+        <p>
+          <a href="https://www.strava.com/oauth/authorize?client_id=16870&response_type=code&redirect_uri=http://localhost:3000/token_exchange&approval_prompt=auto">
+            Log in using Strava
+          </a>
+        </p>
       </div>
     );
   }

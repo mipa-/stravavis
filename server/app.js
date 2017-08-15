@@ -12,6 +12,7 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 app.get('/api', (req,res) => {
+  console.log('/api')
 	var strava = require('strava-v3');
 
     strava.athletes.get({id:4516293},function(err,payload) {

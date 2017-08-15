@@ -1,13 +1,17 @@
 {
   "name": "stravavis",
   "homepage": "https://mipa-.github.io/stravavis",
+  "proxy": "http://localhost:9000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "express": "^4.15.2",
     "morgan": "^1.8.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "^4.1.2",
+    "react-router-dom": "^4.1.2",
+    "react-scripts": "1.0.11"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
@@ -16,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "server": "node server",
     "eject": "react-scripts eject"
   }
 }
