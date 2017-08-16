@@ -15,7 +15,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <p>
-          <a href="https://www.strava.com/oauth/authorize?client_id=16870&response_type=code&redirect_uri=http://localhost:3000/token_exchange&approval_prompt=auto">
+          <a href="https://www.strava.com/oauth/authorize?client_id=16870&approval_prompt=force&response_type=code&redirect_uri=http://localhost:3000/token_exchange&approval_prompt=auto">
             Log in using Strava
           </a>
         </p>
