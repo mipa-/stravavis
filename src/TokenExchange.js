@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import xhr from 'tiny-xhr';
+import './App.css';
 
 class Root extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {ready: false}
+  }
+
   componentWillMount() {
     let code
     const href = window.location.href
@@ -28,25 +35,11 @@ class Root extends Component {
     xhr(options)
       .then(function(data) {
         console.log(data)
-      })
+        this.setState({ready: true})
+      }.bind(this))
       .catch(function(error) {
         console.warn(error)
-      });
-  }
-
-  logout() {
-    const options = {
-      url: '/api/logout',
-      method: 'GET',
-      type: 'json'
-    };
-    xhr(options)
-      .then(function(data) {
-        console.log(data)
-      })
-      .catch(function(error) {
-        console.warn(error)
-      });
+      }.bind(this));
   }
 
   render() {
@@ -54,7 +47,7 @@ class Root extends Component {
       <div>
         <h1>Token Exchange</h1>
         
-        <button onClick={this.logout}>Log out</button>
+        {this.state.ready?<Redirect to="/athlete" />:null}
         
       </div>
     )
