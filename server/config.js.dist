@@ -1,0 +1,14 @@
+const stravaConfig = {
+  accessToken: '',
+  clientID: '',
+  clientSecret: '',
+  redirectURI: '',
+  sessionSecret: ''
+};
+
+process.env.STRAVA_ACCESS_TOKEN = stravaConfig.accessToken
+process.env.STRAVA_CLIENT_ID = stravaConfig.clientID
+process.env.STRAVA_CLIENT_SECRET = stravaConfig.clientSecret
+process.env.SESSION_SECRET = stravaConfig.sessionSecret
+
+module.exports = stravaConfig
