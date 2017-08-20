@@ -47,11 +47,30 @@ class Athlete extends Component {
       });
   }
 
+  listActivities(event) {
+    event.preventDefault()
+    const options = {
+      url: '/api/listactivities',
+      method: 'GET',
+      type: 'json'
+    };
+    xhr(options)
+      .then(function(data) {
+        console.log(data)
+        this.setState({data})
+      }.bind(this))
+      .catch(function(error) {
+        console.warn(error)
+        this.setState({data: null})
+      }.bind(this));
+  }
+
   render() {
     return (
       <div>
         <h1>Stats</h1>
         <p>{this.state.data?JSON.stringify(this.state.data):''}</p>
+        <p><a href="/athlete" onClick={this.listActivities.bind(this)}>List Activities</a></p>
         <p><a href="/logout" onClick={this.logout.bind(this)}>Log out</a></p>
         {this.redirect?<Redirect to="/"/>:null}
       </div>

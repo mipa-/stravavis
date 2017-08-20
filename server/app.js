@@ -49,6 +49,20 @@ app.get('/api/athlete', (req, res) => {
   });
 })
 
+app.get('/api/listactivities', (req, res) => {
+  const access_token = req.session.access_token
+  strava.athlete.listActivities({access_token},function(err, payload, limits) {
+    if(!err) {
+      console.log(payload);
+      res.send(payload)
+    }
+    else {
+      console.log(err)
+      res.send(err)
+    }
+  });
+})
+
 app.get('/api/logout', (req, res) => {
   const access_token = req.session.access_token
   strava.oauth.deauthorize({access_token}, (data) => {
