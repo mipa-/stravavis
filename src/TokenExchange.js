@@ -21,6 +21,10 @@ class Root extends Component {
     } else {
       code = href.substring(index + 6, href.indexOf('&', index + 6))
     }
+    if (code.indexOf('#') !== -1) {
+      code = code.substring(0, code.indexOf('#'))
+    }
+
     if (!code) {
       console.log(href, index, href.substring(index) + 6)
       return
