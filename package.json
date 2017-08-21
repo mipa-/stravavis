@@ -1,7 +1,7 @@
 {
   "name": "stravavis",
   "homepage": "https://mipa-.github.io/stravavis",
-  "proxy": "http://localhost:9000",
+  "proxy": "http://127.0.0.1:9001",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
