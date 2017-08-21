@@ -25,8 +25,11 @@ class Athlete extends Component {
         this.setState({data})
       }.bind(this))
       .catch(function(error) {
-        console.warn(error)
+        console.log(error.status)
         this.setState({data: null})
+        if (error.status === 401) {
+          this.setState({redirect: true})
+        }
       }.bind(this));
   }
 
@@ -43,7 +46,10 @@ class Athlete extends Component {
         this.setState({redirect: true})
       })
       .catch(function(error) {
-        console.warn(error)
+        console.log(error.status)
+        if (error.status === 401) {
+          this.setState({redirect: true})
+        }
       });
   }
 
@@ -60,8 +66,11 @@ class Athlete extends Component {
         this.setState({data})
       }.bind(this))
       .catch(function(error) {
-        console.warn(error)
+        console.log(error.status)
         this.setState({data: null})
+        if (error.status === 401) {
+          this.setState({redirect: true})
+        }
       }.bind(this));
   }
 
@@ -72,7 +81,7 @@ class Athlete extends Component {
         <p>{this.state.data?JSON.stringify(this.state.data):''}</p>
         <p><a href="/athlete" onClick={this.listActivities.bind(this)}>List Activities</a></p>
         <p><a href="/logout" onClick={this.logout.bind(this)}>Log out</a></p>
-        {this.redirect?<Redirect to="/"/>:null}
+        {this.state.redirect?<Redirect to="/"/>:null}
       </div>
     )
   }
